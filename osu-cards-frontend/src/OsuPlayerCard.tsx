@@ -15,33 +15,25 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
     rank,
     pp,
     accuracy,
+    country,
 }) => {
     return (
-        <div className="">
-            <div className="">
+        <>
+            <div className="bg-indigo-300 text-black rounded-lg w-72 h-100 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105">
                 <div className="">
                     <img
                         src={avatar}
-                        alt={`${username}'s avatar`}
-                        className=""
+                        alt="profile_picture"
+                        className="w-full h-50 rounded-lg"
                     />
                 </div>
-
-                <h2 className="">{username}</h2>
-
-                <div className="">
-                    <p className="">
-                        <span className="">Rank:</span> #{rank}
-                    </p>
-                    <p className="">
-                        <span className="">Performance Points:</span> {pp}pp
-                    </p>
-                    <p className="">
-                        <span className="">Accuracy:</span> {accuracy}%
-                    </p>
-                </div>
+                <div className="">{username}</div>
+                <div className="">#{rank}</div>
+                <div className="">{pp}pp</div>
+                <div className="">{accuracy}%</div>
+                <div className="">{country}</div>
             </div>
-        </div>
+        </>
     );
 };
 
