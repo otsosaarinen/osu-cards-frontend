@@ -70,7 +70,7 @@ const App = () => {
 
             {/* Display player cards if data is available */}
             {showCards && (
-                <div className="flex justify-center items-center gap-5">
+                <div className="flex gap-5">
                     {playerData.length > 0 ? (
                         playerData.map((player, index) => (
                             <OsuPlayerCard
