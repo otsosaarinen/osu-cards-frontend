@@ -87,7 +87,7 @@ const App = () => {
                                     rank={player.rank}
                                     pp={player.pp}
                                     accuracy={player.accuracy}
-                                    country={player.country}
+                                    country={`https://assets.ppy.sh/old-flags/${player.country}.png`}
                                 />
                             ))
                         ) : (
