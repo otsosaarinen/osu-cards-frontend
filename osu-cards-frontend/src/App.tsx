@@ -84,7 +84,7 @@ const App = () => {
                             />
                         ))
                     ) : (
-                        <div>No players found.</div> // Show message if no data is available
+                        <div className="text-white">No cards found</div> // Show message if no data is available
                     )}
                 </div>
             )}
