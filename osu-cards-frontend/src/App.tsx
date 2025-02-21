@@ -13,11 +13,19 @@ const App = () => {
             />
             <OsuPlayerCard
                 username="Cookiezi"
-                avatar="https://a.ppy.sh/1000140.png"
+                avatar="https://a.ppy.sh/1000140"
                 rank={1}
                 pp={25000}
                 accuracy={98.99}
                 country="KR"
+            />
+            <OsuPlayerCard
+                username="Freddie Benson"
+                avatar="https://a.ppy.sh/7342622"
+                rank={1}
+                pp={21032}
+                accuracy={97.65}
+                country="US"
             />
         </div>
     );
