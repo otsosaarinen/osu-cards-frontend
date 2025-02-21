@@ -18,15 +18,15 @@ interface PlayerDataResponse {
 }
 
 const App = () => {
-    // State to control whether player cards are shown
-    const [showCards, setShowCards] = useState<boolean>(false);
+    // State to control whether the pack is open
+    const [isPackOpen, setIsPackOpen] = useState<boolean>(false);
 
     // State to store fetched player data
     const [playerData, setPlayerData] = useState<OsuPlayer[]>([]);
 
     // Function to fetch player data from the API and update state
-    const handleShowCards = async () => {
-        setShowCards(true); // Show the cards section
+    const handleOpenPack = async () => {
+        setIsPackOpen(true); // Set the pack as open
         try {
             // Fetch data from the backend API
             const response = await fetch(
@@ -58,18 +58,18 @@ const App = () => {
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-gray-950">
-            {/* Show button only if cards are not yet displayed */}
-            {!showCards && (
+            {/* Show button only if the pack is not open */}
+            {!isPackOpen && (
                 <button
-                    onClick={handleShowCards}
+                    onClick={handleOpenPack}
                     className="bg-blue-500 text-white p-4 rounded-lg"
                 >
-                    Show Cards
+                    Open Pack
                 </button>
             )}
 
             {/* Display player cards if data is available */}
-            {showCards && (
+            {isPackOpen && (
                 <div className="flex flex-col items-center gap-5">
                     {/* Display 'Cards:' text if players data exists */}
                     {playerData.length > 0 && (
