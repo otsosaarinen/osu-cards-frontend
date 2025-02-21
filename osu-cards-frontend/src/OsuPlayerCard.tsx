@@ -6,7 +6,6 @@ interface OsuPlayerCardProps {
     rank: number;
     pp: number;
     accuracy: number;
-    country: string; // ISO country code (e.g., "US", "JP")
 }
 
 const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
@@ -15,33 +14,27 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
     rank,
     pp,
     accuracy,
-    country,
 }) => {
     return (
-        <div className="relative w-72 bg-gradient-to-br from-purple-600 to-blue-500 p-1 rounded-2xl shadow-lg hover:scale-105 transition-transform">
+        <div className="relative w-72 h-96 bg-gradient-to-br from-purple-600 to-blue-500 p-1 rounded-2xl shadow-lg hover:scale-105 transition-transform">
             {/* Card Container */}
-            <div className="bg-gray-900 text-white rounded-xl p-4">
-                {/* Avatar & Country */}
+            <div className="bg-gray-900 text-white rounded-xl p-6 h-full">
+                {/* Avatar */}
                 <div className="flex justify-center relative">
                     <img
                         src={avatar}
                         alt={`${username}'s avatar`}
-                        className="w-24 h-24 rounded-full border-4 border-white"
-                    />
-                    <img
-                        src={`https://flagcdn.com/w40/${country.toLowerCase()}.png`}
-                        alt={country}
-                        className="absolute top-0 right-0 w-8 h-6 rounded shadow-md"
+                        className="w-full h-32 object-cover rounded-lg border-4 border-white"
                     />
                 </div>
 
                 {/* Player Info */}
-                <h2 className="text-xl font-bold text-center mt-2">
+                <h2 className="text-xl font-bold text-center mt-4">
                     {username}
                 </h2>
 
                 {/* Stats */}
-                <div className="mt-3 space-y-2 text-center">
+                <div className="mt-4 space-y-2 text-center">
                     <p className="text-lg">
                         <span className="font-semibold">Rank:</span> #{rank}
                     </p>
