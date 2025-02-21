@@ -5,9 +5,9 @@ import OsuPlayerCard from "./OsuPlayerCard";
 interface OsuPlayer {
     user_id: string;
     username: string;
-    rank: string;
-    pp: string;
-    accuracy: string;
+    rank: number;
+    pp: number;
+    accuracy: number;
     country: string;
 }
 
@@ -39,15 +39,9 @@ const App = () => {
 
             const data: PlayerDataResponse = await response.json();
 
-            // If players exist in the response, format their data
+            // If players exist in the response, use their raw data without modifications
             if (data.players) {
-                const updatedPlayers = data.players.map((player) => ({
-                    ...player,
-                    pp: parseFloat(player.pp).toFixed(0), // Convert PP to integer format
-                    accuracy: parseFloat(player.accuracy).toFixed(2), // Keep accuracy to 2 decimal places
-                }));
-
-                setPlayerData(updatedPlayers); // Update state with formatted player data
+                setPlayerData(data.players); // Update state with the raw player data
             } else {
                 console.error("No player data found.");
             }
@@ -85,8 +79,8 @@ const App = () => {
                                     username={player.username}
                                     avatar={`https://a.ppy.sh/${player.user_id}`} // Avatar URL based on user ID
                                     rank={player.rank}
-                                    pp={player.pp}
-                                    accuracy={player.accuracy}
+                                    pp={player.pp} // No rounding here
+                                    accuracy={player.accuracy} // No rounding here
                                     country={`https://assets.ppy.sh/old-flags/${player.country}.png`}
                                 />
                             ))
