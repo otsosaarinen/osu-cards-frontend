@@ -26,9 +26,7 @@ const App = () => {
         setShowCards(true);
         try {
             // Make a GET request to the Express server
-            const response = await fetch(
-                "http://localhost:3000/api/card_request"
-            );
+            const response = await fetch("/api/card_request");
 
             // Check if response is OK before proceeding
             if (!response.ok) {
@@ -39,7 +37,14 @@ const App = () => {
 
             // Set the player data in state
             if (data.players) {
-                setPlayerData(data.players); // Set the players from the response
+                // Round pp and accuracy to 2 decimals
+                const updatedPlayers = data.players.map((player) => ({
+                    ...player,
+                    pp: parseFloat(player.pp).toFixed(2), // Round pp
+                    accuracy: parseFloat(player.accuracy).toFixed(2), // Round accuracy
+                }));
+
+                setPlayerData(updatedPlayers); // Set the players from the response
             } else {
                 console.error("No player data found.");
             }
