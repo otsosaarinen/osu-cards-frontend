@@ -1,7 +1,6 @@
 import { useState } from "react";
 import OsuPlayerCard from "./OsuPlayerCard";
 
-// Define the type for each player
 interface OsuPlayer {
     user_id: string;
     username: string;
@@ -11,42 +10,36 @@ interface OsuPlayer {
     country: string;
 }
 
-// Define the type for the API response data
 interface PlayerDataResponse {
-    players?: OsuPlayer[]; // Optional array of players
-    message?: string; // Optional message, in case no players are found
+    players?: OsuPlayer[];
+    message?: string;
 }
 
 const App = () => {
-    const [showCards, setShowCards] = useState<boolean>(false); // State to control visibility of the cards
-    const [playerData, setPlayerData] = useState<OsuPlayer[]>([]); // State to store player data, typed as an array of OsuPlayer
+    const [showCards, setShowCards] = useState<boolean>(false);
+    const [playerData, setPlayerData] = useState<OsuPlayer[]>([]);
 
-    // Function to show the cards and fetch player data from the server when the button is clicked
     const handleShowCards = async () => {
         setShowCards(true);
         try {
-            // Make a GET request to the Express server
             const response = await fetch(
                 "http://localhost:3000/api/card_request"
             );
 
-            // Check if response is OK before proceeding
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
 
-            const data: PlayerDataResponse = await response.json(); // Type the response as PlayerDataResponse
+            const data: PlayerDataResponse = await response.json();
 
-            // Set the player data in state
             if (data.players) {
-                // Round pp and accuracy to 2 decimals
                 const updatedPlayers = data.players.map((player) => ({
                     ...player,
-                    pp: parseFloat(player.pp).toFixed(0), // Round pp
-                    accuracy: parseFloat(player.accuracy).toFixed(2), // Round accuracy
+                    pp: parseFloat(player.pp).toFixed(0),
+                    accuracy: parseFloat(player.accuracy).toFixed(2),
                 }));
 
-                setPlayerData(updatedPlayers); // Set the players from the response
+                setPlayerData(updatedPlayers);
             } else {
                 console.error("No player data found.");
             }
@@ -57,7 +50,6 @@ const App = () => {
 
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-gray-950">
-            {/* Render the button only if showCards is false */}
             {!showCards && (
                 <button
                     onClick={handleShowCards}
@@ -67,7 +59,6 @@ const App = () => {
                 </button>
             )}
 
-            {/* Render the cards only when showCards is true */}
             {showCards && (
                 <div className="flex justify-center items-center gap-5">
                     {playerData.length > 0 ? (
@@ -75,7 +66,7 @@ const App = () => {
                             <OsuPlayerCard
                                 key={index}
                                 username={player.username}
-                                avatar={`https://a.ppy.sh/${player.user_id}`} // assuming the avatar URL is dynamic like this
+                                avatar={`https://a.ppy.sh/${player.user_id}`}
                                 rank={player.rank}
                                 pp={player.pp}
                                 accuracy={player.accuracy}
