@@ -3,9 +3,9 @@ import React from "react";
 interface OsuPlayerCardProps {
     username: string;
     avatar: string;
-    rank: number;
-    pp: number;
-    accuracy: number;
+    rank: string;
+    pp: string;
+    accuracy: string;
     country: string;
 }
 
