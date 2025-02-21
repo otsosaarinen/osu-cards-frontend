@@ -4,9 +4,9 @@ import React from "react";
 interface OsuPlayerCardProps {
     username: string; // Player's username
     avatar: string; // URL to player's avatar image
-    rank: string; // Player's global rank
-    pp: string; // Player's performance points (pp)
-    accuracy: string; // Player's accuracy percentage
+    rank: number; // Player's global rank
+    pp: number; // Player's performance points (pp)
+    accuracy: number; // Player's accuracy percentage
     country: string; // Player's country code
 }
 
