@@ -70,22 +70,30 @@ const App = () => {
 
             {/* Display player cards if data is available */}
             {showCards && (
-                <div className="flex gap-5">
-                    {playerData.length > 0 ? (
-                        playerData.map((player, index) => (
-                            <OsuPlayerCard
-                                key={index} // Assign a unique key to each card
-                                username={player.username}
-                                avatar={`https://a.ppy.sh/${player.user_id}`} // Avatar URL based on user ID
-                                rank={player.rank}
-                                pp={player.pp}
-                                accuracy={player.accuracy}
-                                country={player.country}
-                            />
-                        ))
-                    ) : (
-                        <div className="text-white">No cards found</div> // Show message if no data is available
+                <div className="flex flex-col items-center gap-5">
+                    {/* Display 'Cards:' text if players data exists */}
+                    {playerData.length > 0 && (
+                        <div className="text-white">Cards:</div>
                     )}
+
+                    {/* Cards container with flex-row for horizontal arrangement */}
+                    <div className="flex flex-row gap-5">
+                        {playerData.length > 0 ? (
+                            playerData.map((player, index) => (
+                                <OsuPlayerCard
+                                    key={index} // Assign a unique key to each card
+                                    username={player.username}
+                                    avatar={`https://a.ppy.sh/${player.user_id}`} // Avatar URL based on user ID
+                                    rank={player.rank}
+                                    pp={player.pp}
+                                    accuracy={player.accuracy}
+                                    country={player.country}
+                                />
+                            ))
+                        ) : (
+                            <div className="text-white">No cards found</div> // Show message if no data is available
+                        )}
+                    </div>
                 </div>
             )}
         </div>
