@@ -26,7 +26,9 @@ const App = () => {
         setShowCards(true);
         try {
             // Make a GET request to the Express server
-            const response = await fetch("/api/card_request");
+            const response = await fetch(
+                "http://localhost:3000/api/card_request"
+            );
 
             // Check if response is OK before proceeding
             if (!response.ok) {
