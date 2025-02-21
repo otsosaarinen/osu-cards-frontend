@@ -35,7 +35,9 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
                 <div className="">#{rank}</div>
                 <div className="">{pp}pp</div>
                 <div className="">{accuracy}%</div>
-                <div className="">{country}</div>
+                <div className="">
+                    <img src={country} alt="country_flag" />
+                </div>
             </div>
         </>
     );
