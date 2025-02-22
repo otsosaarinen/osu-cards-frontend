@@ -42,13 +42,27 @@ const App = () => {
 
             // If players exist in the response, use their raw data without modifications
             if (data.players) {
-                setPlayerData(data.players); // Update state with the raw player data
+                // Assign rarity based on pp
+                const playersWithRarity = data.players.map((player) => ({
+                    ...player,
+                    rarity: assignRarity(player.pp),
+                }));
+
+                setPlayerData(playersWithRarity); // Update state with modified data
             } else {
                 console.error("No player data found.");
             }
         } catch (error) {
             console.error("Error fetching player data:", error);
         }
+    };
+
+    // Function to assign rarity based on pp
+    const assignRarity = (pp: number): string => {
+        if (pp > 21000) return "Legendary";
+        if (pp > 20500) return "Ultra Rare";
+        if (pp > 20000) return "Rare";
+        return "Common";
     };
 
     return (
