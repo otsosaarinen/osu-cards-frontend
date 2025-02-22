@@ -33,9 +33,11 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
         <>
             {/* Player card container */}
             <div
-                className={`${rarityColor} text-black border-3 border-white rounded-lg w-70 h-90 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105 hover:shadow-lg`}
+                className={`${rarityColor} text-stone-900 border-3 border-white rounded-lg w-70 h-90 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105 hover:shadow-lg`}
             >
-                <div className="font-bold uppercase">{rarity}</div>
+                <div className="font-bold uppercase text-xl font-poppins">
+                    {rarity}
+                </div>
                 {/* Player avatar */}
                 <div className="">
                     <img
