@@ -70,6 +70,12 @@ const App = () => {
         }
     };
 
+    // Function to reset the pack
+    const handleResetPack = () => {
+        setIsPackOpen(false); // Set pack state to closed
+        setPlayerData([]); // Clear the player data
+    };
+
     return (
         <div className="flex flex-col justify-center items-center min-h-screen bg-stone-900">
             {/* Show button only if the pack is not open */}
@@ -108,9 +114,17 @@ const App = () => {
                         ) : (
                             <div className="bg-red-500 text-white p-4 rounded-lg">
                                 No cards found
-                            </div> // Show message if no data is available
+                            </div>
                         )}
                     </div>
+
+                    {/* Button to go back to the "Open Pack" state */}
+                    <button
+                        onClick={handleResetPack}
+                        className="bg-blue-500 text-white p-4 rounded-lg mt-5"
+                    >
+                        Go Back
+                    </button>
                 </div>
             )}
         </div>
