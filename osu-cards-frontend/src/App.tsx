@@ -9,6 +9,7 @@ interface OsuPlayer {
     pp: number;
     accuracy: number;
     country: string;
+    rarity: string;
 }
 
 // Define the expected structure of the API response
@@ -71,7 +72,7 @@ const App = () => {
                     )}
 
                     {/* Cards container with flex-row for horizontal arrangement */}
-                    <div className="flex flex-row gap-5">
+                    <div className="flex flex-row gap-10">
                         {playerData.length > 0 ? (
                             playerData.map((player, index) => (
                                 <OsuPlayerCard
@@ -82,6 +83,7 @@ const App = () => {
                                     pp={player.pp} // No rounding here
                                     accuracy={player.accuracy} // No rounding here
                                     country={`https://assets.ppy.sh/old-flags/${player.country}.png`}
+                                    rarity={player.rarity}
                                 />
                             ))
                         ) : (
