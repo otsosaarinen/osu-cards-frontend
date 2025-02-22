@@ -8,6 +8,7 @@ interface OsuPlayerCardProps {
     pp: number; // Player's performance points (pp)
     accuracy: number; // Player's accuracy percentage
     country: string; // Player's country code
+    rarity: string; // Player's rarity
 }
 
 const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
@@ -17,17 +18,19 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
     pp,
     accuracy,
     country,
+    rarity,
 }) => {
     return (
         <>
             {/* Player card container */}
             <div className="bg-indigo-300 text-black rounded-lg w-72 h-100 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105">
+                <div className="">rarity: {rarity}</div>
                 {/* Player avatar */}
                 <div className="">
                     <img
                         src={avatar}
                         alt="profile_picture"
-                        className="w-full h-50 rounded-lg"
+                        className="w-full h-30 rounded-lg"
                     />
                 </div>
                 {/* Display player details */}
