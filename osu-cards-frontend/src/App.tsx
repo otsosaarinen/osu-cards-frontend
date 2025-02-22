@@ -71,7 +71,7 @@ const App = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center min-h-screen bg-black">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-stone-900">
             {/* Show button only if the pack is not open */}
             {!isPackOpen && (
                 <button
@@ -87,7 +87,7 @@ const App = () => {
                 <div className="flex flex-col items-center gap-5">
                     {/* Display 'Cards:' text if players data exists */}
                     {playerData.length > 0 && (
-                        <div className="text-white">Cards:</div>
+                        <div className="text-white text-xl">Your cards:</div>
                     )}
 
                     {/* Cards container with flex-row for horizontal arrangement */}
