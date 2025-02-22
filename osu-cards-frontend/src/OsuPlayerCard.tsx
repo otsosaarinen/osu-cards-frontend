@@ -44,16 +44,18 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
                         <img
                             src={avatar}
                             alt="profile_picture"
-                            className="w-full h-40 object-cover rounded-lg"
+                            className="w-70 h-30 object-cover rounded-lg"
                         />
                     </div>
-                    {/* Display player details */}
-                    <div className="">{username}</div>
-                    <div className="">#{rank}</div>
-                    <div className="">{pp}pp</div>
-                    <div className="">{accuracy}%</div>
-                    <div className="">
-                        <img src={country} alt="flag" />
+                    <div className="flex flex-col justify-evenly items-center h-60">
+                        {/* Display player details */}
+                        <div className="text-lg font-bold">{username}</div>
+                        <div className="text-lg">#{rank}</div>
+                        <div className="text-lg">{pp}pp</div>
+                        <div className="text-lg">{accuracy}%</div>
+                        <div className="text-lg">
+                            <img src={country} alt="flag" />
+                        </div>
                     </div>
                 </div>
             </div>
