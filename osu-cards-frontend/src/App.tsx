@@ -59,10 +59,15 @@ const App = () => {
 
     // Function to assign rarity based on pp
     const assignRarity = (pp: number): string => {
-        if (pp > 21000) return "Legendary";
-        if (pp > 20500) return "Ultra Rare";
-        if (pp > 20000) return "Rare";
-        return "Common";
+        if (pp > 21000) {
+            return "Legendary";
+        } else if (pp > 20500) {
+            return "Ultra Rare";
+        } else if (pp > 20000) {
+            return "Rare";
+        } else {
+            return "Common";
+        }
     };
 
     return (
