@@ -20,11 +20,22 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
     country,
     rarity,
 }) => {
+    const rarityColor =
+        rarity === "Legendary"
+            ? "bg-red-400 shadow-lg shadow-red-400/50"
+            : rarity === "Ultra Rare"
+            ? "bg-fuchsia-400 shadow-lg shadow-fuchsia-400/50"
+            : rarity === "Rare"
+            ? "bg-sky-400 shadow-lg shadow-sky-400/50"
+            : "bg-slate-400 shadow-lg shadow-slate-400/50";
+
     return (
         <>
             {/* Player card container */}
-            <div className="bg-indigo-300 text-black rounded-lg w-72 h-100 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105">
-                <div className="">rarity: {rarity}</div>
+            <div
+                className={`${rarityColor} text-black rounded-lg w-70 h-90 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105`}
+            >
+                <div className="">{rarity}</div>
                 {/* Player avatar */}
                 <div className="">
                     <img
