@@ -71,7 +71,7 @@ const App = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center min-h-screen bg-gray-950">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-black">
             {/* Show button only if the pack is not open */}
             {!isPackOpen && (
                 <button
@@ -106,7 +106,9 @@ const App = () => {
                                 />
                             ))
                         ) : (
-                            <div className="text-white">No cards found</div> // Show message if no data is available
+                            <div className="bg-red-500 text-white p-4 rounded-lg">
+                                No cards found
+                            </div> // Show message if no data is available
                         )}
                     </div>
                 </div>
