@@ -31,28 +31,30 @@ const OsuPlayerCard: React.FC<OsuPlayerCardProps> = ({
 
     return (
         <>
-            {/* Player card container */}
-            <div
-                className={`${rarityColor} text-stone-900 border-3 border-white rounded-lg w-70 h-90 flex flex-col justify-start items-center transform transition-all duration-150 hover:scale-105 hover:shadow-lg`}
-            >
-                <div className="font-bold uppercase text-xl font-poppins">
+            <div className="text-stone-900 font-poppins flex flex-col justify-start items-center">
+                <div className="font-bold text-white uppercase text-xl m-1">
                     {rarity}
                 </div>
-                {/* Player avatar */}
-                <div className="">
-                    <img
-                        src={avatar}
-                        alt="profile_picture"
-                        className="w-full h-40 object-cover rounded-lg"
-                    />
-                </div>
-                {/* Display player details */}
-                <div className="">{username}</div>
-                <div className="">#{rank}</div>
-                <div className="">{pp}pp</div>
-                <div className="">{accuracy}%</div>
-                <div className="">
-                    <img src={country} alt="flag" />
+                {/* Player card container */}
+                <div
+                    className={`flex flex-col justify-start items-center ${rarityColor} border-3 border-white rounded-lg w-70 h-90 transform transition-all duration-150 hover:scale-105 hover:shadow-lg`}
+                >
+                    {/* Player avatar */}
+                    <div className="">
+                        <img
+                            src={avatar}
+                            alt="profile_picture"
+                            className="w-full h-40 object-cover rounded-lg"
+                        />
+                    </div>
+                    {/* Display player details */}
+                    <div className="">{username}</div>
+                    <div className="">#{rank}</div>
+                    <div className="">{pp}pp</div>
+                    <div className="">{accuracy}%</div>
+                    <div className="">
+                        <img src={country} alt="flag" />
+                    </div>
                 </div>
             </div>
         </>
