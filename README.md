@@ -10,3 +10,17 @@ Works together with the [osu-cards-backend](https://github.com/otsosaarinen/osu-
 A simple frontend that visualizes player data received from the backend and creates osu! player cards from that data.
 
 Practiced using Tailwind CSS for the first time and feels really great to use :D
+
+# How to run
+1. Navigate to ```osu-cards-frontend``` folder
+```bash
+cd osu-cards-frontend
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Start vite server
+```bash
+npm run dev
+```
